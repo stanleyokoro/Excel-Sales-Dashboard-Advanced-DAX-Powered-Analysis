@@ -1,0 +1,17 @@
+-- Total Transactions
+#Transaction := COUNTROWS(FactInternetSales)
+
+-- All Products Listed
+All Products := COUNTROWS(DimProduct)
+
+-- Distinct Sold Products
+Sold Products := DISTINCTCOUNT(FactInternetSales[ProductKey])
+
+-- Unsold Products
+Unsold Products := [All Products] - [Sold Products]
+
+-- Profit Margin Percentage
+% Profit Margin := DIVIDE([Total Profit], [Total Revenue], 0)
+
+-- Average Customer Age
+Average Customer Age := AVERAGE(DimCustomer[Customer Age])
